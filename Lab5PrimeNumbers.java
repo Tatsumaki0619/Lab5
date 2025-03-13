@@ -29,6 +29,7 @@ public class Lab5PrimeNumbers
     }
 
     /**
+     * 
      *@param test The number need to be tested whether it is a prime number or not.
      *@return The result of the value's prime test.
      */

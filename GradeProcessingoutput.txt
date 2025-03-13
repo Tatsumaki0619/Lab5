@@ -1,25 +1,30 @@
 Set 1 of grades calculated.
-Number of As: 4
+Number of As: 3
 Number of Bs: 4
 Number of Cs: 4
 Number of Ds: 4
 Number of Fs: 2
-The high score was: 100
+The high score was: 98
 The low score was: 40
-1369
-The average score is: 76.1.
+The average score is: 74.7.
 
 Set 2 of grades calculated.
-No grades to average.
+Number of As: 0
+Number of Bs: 0
+Number of Cs: 0
+Number of Ds: 0
+Number of Fs: 0
+The high score was: 0
+The low score was: 100
+The average score is: Infinity.
 
 Set 3 of grades calculated.
-Number of As: 5
+Number of As: 4
 Number of Bs: 4
 Number of Cs: 3
 Number of Ds: 2
 Number of Fs: 1
-The high score was: 100
+The high score was: 99
 The low score was: 52
-1231
-The average score is: 82.1.
+The average score is: 80.9.
 

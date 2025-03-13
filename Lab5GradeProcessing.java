@@ -22,19 +22,20 @@ public class Lab5GradeProcessing
             String outputFile = getOutLine();
             processFile(inputFile, outputFile);
         }
-        
+
         System.exit(0);
     }
 
     /**
-     * @return It will test the name/path of the file the user provided and return it if the dile exists.
+     * This method can get the file with grades in it, and will also test whether the file exists or not.
+     * @return the name/path of the file will return if it exist or 
+     * will return "The file does not exist." if it dosn't.
      */
     public static String getlnLine() throws IOException{
         String temp;
-        boolean test = true;
         temp = JOptionPane.showInputDialog("Please provide the path/file name: ");
         File file = new File (temp);
-        
+
         if(file.exists()){
             return temp;
         }
@@ -43,42 +44,43 @@ public class Lab5GradeProcessing
         }
     }
 
-    /**
+    /**This method allows the user to create the name for the output file.
      * @return It will return the name of the outputfile based on the user's input.
      */
     public static String getOutLine() throws IOException{
         String outPutFile;
-        
+
         outPutFile = JOptionPane.showInputDialog("Please provide the" + 
             "path/file name for output file: ");
         return outPutFile;
     }
-    
+
     /**
+     * This method will calculate the user's grades including the number of grades(A-F), highest, lowest score and average.
      * @param inFile It is the first file's name/path with user's grades.
      * @param outFile It is the second file's name/path crated by the user.
-     * @return The process file with the summary of the user's grades including the number of grades(A-F), highest, lowest score and average. 
      */
     public static void processFile(String inFile, String outFile) throws IOException{
         int lineNumber = 0;
         double average;
-        File myFile = new File(inFile);
-        Scanner inputFile = new Scanner(myFile);
-        PrintWriter outputFile = new PrintWriter(outFile);
-        
-        while(inputFile.hasNextLine()){
+        File myFile = new File(inFile);//convert the string of the input file name to a real file so we can scan
+        Scanner inputFile = new Scanner(myFile);//scan the input file(with grades on it) 
+
+        PrintWriter outputFile = new PrintWriter(outFile);//write a new file as our output file.
+
+        while(inputFile.hasNextLine()){//hasNextLine is a test like a boolean
             int grade = -2,sum = 0, A = 0, B =0, C = 0,
             D = 0, F = 0, high = 0, low = 100, num = 0;
-            Scanner lineScanner = new Scanner(inputFile.nextLine());
+            Scanner lineScanner = new Scanner(inputFile.nextLine());//nextLine() will actually start reading the line
             lineNumber ++;
-            
-            while(lineScanner.hasNextInt()){
+
+            while(lineScanner.hasNextInt()){//same to hasNextLine() just test not reading
                 grade = lineScanner.nextInt();
-                
+
                 if(grade != -1){
                     sum += grade;
                     num++;
-                    
+
                     if(grade >= high){
                         high = grade;
                     }
@@ -107,9 +109,9 @@ public class Lab5GradeProcessing
                     sum = sum - 1;        
                 }
             }
-            
+
             outputFile.println("Set " + lineNumber + " of grades calculated.");
-            
+
             if(sum == -1){
                 outputFile.println("No grades to average.");
                 outputFile.println();
@@ -126,7 +128,7 @@ public class Lab5GradeProcessing
                 outputFile.printf("The average score is: %.1f.\n", average);
                 outputFile.println();
             }
-            
+
             lineScanner.close();
         }
         outputFile.close();
